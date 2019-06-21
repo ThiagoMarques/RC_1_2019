@@ -11,3 +11,14 @@
 #include<netinet/in.h>
 #include<netinet/tcp.h>
 #include<netdb.h>
+
+
+struct Tree{ 
+    char href[256];
+    struct Tree *filhos[20];
+};
+typedef struct Tree arvore; //Chamada da arvore Tree por arvore
+
+void make_tree(char*, struct Tree *, char *, char *, char *, char *);
+void initialize_node(struct Tree *);
+int walk_tree(char*, struct Tree *);
