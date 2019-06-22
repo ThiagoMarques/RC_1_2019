@@ -85,7 +85,7 @@ int main(int argc, char *argv[] ){
 
     init_socket = socket(AF_INET, SOCK_STREAM, 0); // cria o socket do servidor
     if(init_socket < 0){
-        perror("Erro ao criar socket!.\n");
+        perror("Erro ao criar socket!\n");
     }
     printf("Socket criado! Aguardando cliente para conexao...\n");
 
@@ -96,10 +96,10 @@ int main(int argc, char *argv[] ){
     addr_len = sizeof(struct sockaddr_in); //Recebe endereco
     
     if (setsockopt(init_socket,SOL_SOCKET,SO_REUSEADDR,&tr,sizeof(int)) == -1) {
-        perror("setsockopt");
+        perror("Erro no socket");
         exit(1);
     } if(bind(init_socket, (struct sockaddr*)&servidor, sizeof(servidor)) < 0) {
-        perror("Erro Bind.\n"); //Faz a conexao ao servidor criado
+        perror("Erro Bind\n"); //Faz a conexao ao servidor criado
     }
 
     if(listen(init_socket, 1) == -1) { //Inicia a escuta pela porta 8228
@@ -110,7 +110,7 @@ int main(int argc, char *argv[] ){
 
     // aceita o cliente que deseja-se conectar ao servidor e reserva um socket para ele
     if ((new_socket = accept(init_socket,(struct sockaddr *) &cliente, &cliente_lenght)) == -1) {
-        perror("Erro ao aceitar o cliente.\n");
+        perror("Erro ao aceitar o cliente\n");
     }
     printf("Cliente aceito.\n");
 
