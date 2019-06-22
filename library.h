@@ -12,13 +12,29 @@
 #include<netinet/tcp.h>
 #include<netdb.h>
 
+extern int porta;
+extern int nivel;
+#define N 20
+#define MAX_NIVEL 3
+extern int BUFFER_SIZE;
+#define TRUE 1
+#define FALSE 0
+#define HREF_LIST_SIZE 4096
 
-struct Tree{ 
+
+void parsing(char*, char*, char*);
+int get_host_by_name(char*, char*);
+void dump(char*, char*);
+
+struct Tree{
     char href[256];
-    struct Tree *filhos[20];
+    struct Tree *filhos[N];
 };
-typedef struct Tree arvore; //Chamada da arvore Tree por arvore
+typedef struct Tree arvore;
 
 void make_tree(char*, struct Tree *, char *, char *, char *, char *);
 void initialize_node(struct Tree *);
 int walk_tree(char*, struct Tree *);
+void spider(char *, char *, char *, struct Tree *, char *);
+void imprime_arvore(struct Tree *, int);
+void zera_arvore(struct Tree *, int);
