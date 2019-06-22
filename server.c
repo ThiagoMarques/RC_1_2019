@@ -134,7 +134,7 @@ int main(int argc, char *argv[] ){
         }
         fputs(buf, request_file);
         fclose(request_file);
-        
+        system("nano request.txt"); // abre a opção para o usuário editar o request recebido
         request_file = fopen("request.txt", "r");
 
         i = 0;
@@ -197,7 +197,9 @@ int main(int argc, char *argv[] ){
     }
 
     fclose(html_file);
-
+    strcat(nano, "nano ");
+    strcat(nano, dir);
+    system(nano);
     html_file = fopen(dir, "r");
     bzero(buf, TAM_BUFFER);
     while(fread(buf, 1, TAM_BUFFER, html_file) == TAM_BUFFER){ // envia de volta para o browser a página html
