@@ -1,3 +1,0 @@
-/sitemap
-/node/525
-/node/1050

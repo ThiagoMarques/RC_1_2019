@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
     char index[150] = "\0", nano[200] = "\0", new_url[150] = "\0", new_host[150] = "\0", aux_url[150] = "\0"; //Inicia a URL como NULL (/0)
     char *href_list[HREF_LIST_SIZE]; //Guarda tamanho lista
     char *content_length, *header, size_content[50]; 
-    char opt; 
+    int opt; 
     bzero(href_list, 4096); //buffer para uso
     int init_socket, new_socket; // sockets do servidor e cliente
     int tr = 1, c, i = 0, opcao = 0;
@@ -75,6 +75,10 @@ int main(int argc, char *argv[])
     long int timeout = 0, header_size, q = 0, file_size = 0;
     unsigned int addr_len;
     unsigned int cliente_lenght = sizeof(cliente);
+
+    printf("--------------------------------------\n");
+    printf("\tInspetor HTTP\n"); //Enviar request
+    printf("--------------------------------------\n");
 
     if(argv[1]){ // tratamento para o argumento do número da porta
         if(strcmp(argv[1], "-p") == 0)
@@ -127,6 +131,9 @@ int main(int argc, char *argv[])
 
     close(init_socket);
 
+    printf("Pressione ENTER para enviar request\n");
+    getchar();
+
     if ((message_len = recv(new_socket, buf, TAM_BUFFER, 0)) > 0) //se nao houve erro -> request
     { 
         buf[message_len - 1] = '\0';
@@ -178,16 +185,18 @@ int main(int argc, char *argv[])
 
     strcpy(index, aux_url); //realiza copia
     strcat(index, "/index.txt"); //Inicia a URL como NULA e cria arquivo index com estrutura da pagina
-    mkdir(aux_url, S_IRUSR | S_IWUSR | S_IXUSR);
+    mkdir(aux_url, S_IRUSR | S_IWUSR | S_IXUSR); //Cria diretorio para guardar estrutura
+
+    //Cria arquivo HTML
     html_file = fopen(index, "w");
 
     if (html_file == NULL)
     {
         printf("Erro ao abrir o arquivo!\n");
-        exit(2);
+        exit(0);
     }
 
-    while (read(sock, buf, TAM_BUFFER - 1) != 0)
+    while (read(sock, buf, TAM_BUFFER - 1) != 0) //Escreve dados da pagina no arquivo
     {
         if ((header = strstr(buf, "\r\n")) != NULL)
         {
@@ -214,20 +223,24 @@ int main(int argc, char *argv[])
     }
 
     fclose(html_file);
-    strcat(nano, "nano ");
-    strcat(nano, index);
-    system(nano);
-    html_file = fopen(index, "r");
+    strcat(nano, "nano "); //Abre opcao para modificar arquivo
+    strcat(nano, index); //Inclui arquivo para edicao
+    system(nano); //Chamada do nano
+    html_file = fopen(index, "r"); //Abertura do arquivo para leitura
     bzero(buf, TAM_BUFFER);
     while (fread(buf, 1, TAM_BUFFER, html_file) == TAM_BUFFER)
-    { // envia de volta para o browser a página html
-        send(new_socket, buf, TAM_BUFFER, 0);
+    {
+        send(new_socket, buf, TAM_BUFFER, 0);  // Envia bytes (pagina) ao socket
     }
-
-    printf("Deseja executar spider?\n");
-    scanf("%c", &opt);
-    getchar();
-    if (opt == 's')
+    printf("------------------------------------------------------\n");
+    printf("Digite a opcao desejada: \n");
+    printf("1 - SPIDER \n"); //Execucao do spider
+    printf("2 - DUMP \n"); //Execucao do spider
+    printf("0 - Sair do programa\n");
+    printf("------------------------------------------------------\n");
+    scanf("%d", &opt);
+    
+    if (opt = 1)
     {
         system("clear");
         strcpy(head_href->href, new_url);
