@@ -1,0 +1,16 @@
+/sitemap
+/node/525
+/node/1050
+/node
+/cidadao
+/servidor
+/turismo
+/investidor
+/galeria-multimidia
+/node/232
+/noticias/internet-de-alta-velocidade-e-instalada-na-nova-sede-do-neojiba
+/noticias/fanfarras-escolares-intensificam-ensaios-para-desfile-do-dois-de-julho
+/noticias/rede-sac-ja-atendeu-13-mil-pessoas-com-deficiencia-auditiva
+/noticias/nova-linha-de-producao-de-refrigerantes-e-inaugurada-em-alagoinhas
+/noticias/elisa-lucinda-estrela-solo-no-domingo-no-tca
+/noticias

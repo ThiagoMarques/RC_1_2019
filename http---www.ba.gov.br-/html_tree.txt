@@ -1,0 +1,16 @@
+http://www.ba.gov.br/
+/themes/secom/favicon.ico
+//cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.css
+/
+/sitemap
+/node/525
+/node/1050
+/noticias/internet-de-alta-velocidade-e-instalada-na-nova-sede-do-neojiba
+/noticias/fanfarras-escolares-intensificam-ensaios-para-desfile-do-dois-de-julho
+/noticias/rede-sac-ja-atendeu-13-mil-pessoas-com-deficiencia-auditiva
+/noticias/nova-linha-de-producao-de-refrigerantes-e-inaugurada-em-alagoinhas
+/noticias/elisa-lucinda-estrela-solo-no-domingo-no-tca
+/noticias
+/galeria-multimidia
+/node/232
+ttps%3A%2F%2Fwww.facebook.com%2Fgovernodabahia%2F&amp;tabs&amp;width=460&amp;height=154&amp;small_header=true&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId

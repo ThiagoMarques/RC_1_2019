@@ -1,0 +1,5 @@
+http://www.ba.gov.br/
+/themes/secom/favicon.ico
+//cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.css
+/
+/sitemap

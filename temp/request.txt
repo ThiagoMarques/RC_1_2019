@@ -1,0 +1,10 @@
+GET http://www.ba.gov.br/ HTTP/1.1
+Host: www.ba.gov.br
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:67.0) Gecko/20100101 Firefox/67.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Cookie: _ga=GA1.1.318929388.1561220430; _gid=GA1.1.612981708.1561647074
+Upgrade-Insecure-Requests: 1
+

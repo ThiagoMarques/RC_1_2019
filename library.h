@@ -17,7 +17,7 @@ extern int porta;
 extern int nivel;
 #define TRUE 1
 #define FALSE 0
-#define HREF_LIST_SIZE 16384
+#define HREF_LIST_SIZE 4096
 #define N 20
 #define MAX_NIVEL 3
 
