@@ -1,15 +1,6 @@
 #include "library.h"
-
-int TAM_BUFFER = 16384; // tamanho do buffer
-int porta = 8228;
-int nivel = 0;
-
 //***** Funcoes ******//
-void initialize_node(struct Tree *head_href){ //Inicializa o no com filhos nulos
-    int i;
-    for(i=0;i<N;i++)
-        head_href->filhos[i] = NULL;
-}
+
 void parsing(char* buf, char *new_url, char *new_host){ //Realiza o parsing para capturar requisicoes
     char *get = strstr(buf, "GET");
     char *http = strstr(buf, "HTTP/1.1");
@@ -69,6 +60,7 @@ int main(int argc, char *argv[] ){
     char dir[150] = "\0", nano[200] = "\0", new_url[150] = "\0", new_host[150] = "\0", aux_url[150] = "\0"; //Inicia a URL como NULL (/0)
     char *href_list[HREF_LIST_SIZE]; 
     char *content_length, *header, size_content[50];
+    char opt;
     bzero(href_list, 4096);
     int init_socket, new_socket; // sockets do servidor e cliente
     int tr=1, c, i=0, opcao = 0;
@@ -119,7 +111,7 @@ int main(int argc, char *argv[] ){
     if((message_len = recv(new_socket, buf, TAM_BUFFER, 0)) > 0) {  // recebe o request
         buf[message_len - 1] = '\0';
 
-        if(strstr(buf, "POST") != NULL) { // se o tipo do request for POST, fecha o socket e volta para o inicio
+        if(strstr(buf, "POST") != NULL) { // se o tipo do request for POST, fecha o socket 
             printf("Requisicao do tipo POST.\n");
             close(new_socket);
             // break;
@@ -205,6 +197,19 @@ int main(int argc, char *argv[] ){
     while(fread(buf, 1, TAM_BUFFER, html_file) == TAM_BUFFER){ // envia de volta para o browser a página html
         send(new_socket, buf, TAM_BUFFER, 0);
     }
+    
+    printf("Deseja executar spider?\n");
+    scanf("%c", &opt);
+    getchar();
+    if(opt == 's') {
+        system("clear");
+        strcpy(head_href->href, new_url);
+                    spider(new_url, new_host, aux_url, head_href, aux_url);
+                    imprime_arvore(head_href, 0);
+    }
+
+
+    
     fclose(html_file);
     close(new_socket); // fecha o socket do cliente
 }

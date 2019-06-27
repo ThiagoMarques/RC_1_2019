@@ -12,6 +12,9 @@
 #include<netinet/tcp.h>
 #include<netdb.h>
 
+extern int TAM_BUFFER;
+extern int porta;
+extern int nivel;
 #define TRUE 1
 #define FALSE 0
 #define HREF_LIST_SIZE 16384
