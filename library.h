@@ -28,7 +28,7 @@ struct Tree{
 };
 typedef struct Tree arvore;
 
-int walk_tree(char*, struct Tree *);
+int busca_href_arvore(char*, struct Tree *);
 int get_host_by_name(char*, char*);
 void parsing(char*, char*, char*);
 void dump(char*, char*);

@@ -1,0 +1,13 @@
+http://www.ba.gov.br/
+/themes/secom/favicon.ico
+//cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.css
+/
+/sitemap
+http://www.ba.gov.br/
+/themes/secom/favicon.ico
+//cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.css
+/
+/sitemap
+/node/525
+/node/1050
+/noticias/internet-de-alta-velocidade-e-instalada-na-nova-sede-do-neojiba

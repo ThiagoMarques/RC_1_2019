@@ -1,0 +1,2 @@
+/themes/secom/favicon.ico
+/node/4423
